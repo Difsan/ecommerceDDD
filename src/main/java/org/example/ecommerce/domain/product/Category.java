@@ -13,6 +13,9 @@ public class Category extends Entity<CategoryID> {
         this.title = Objects.requireNonNull(title);
     }
 
+    public void changeTitle(Title title){
+        this.title = title;
+    }
     public Title title(){
         return title;
     }
