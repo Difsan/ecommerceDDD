@@ -2,20 +2,25 @@ package org.example.ecommerce.domain.product.values;
 
 import org.example.ecommerce.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Features implements ValueObject<Features.Props> {
 
     private final String title;
     private final String brand;
     private final String description;
-    private final double unitPrice;
-    private final int stock;
+    private final Double unitPrice;
+    private final Integer stock;
 
-    public Features(String title, String brand, String description, double unitPrice, int stock) {
+    public Features(String title, String brand, String description, Double unitPrice, Integer stock) {
         this.title = title;
         this.brand = brand;
         this.description = description;
         this.unitPrice = unitPrice;
-        this.stock = stock;
+        this.stock = Objects.requireNonNull(stock);
+        if (this.stock <= 0) {
+            throw new IllegalArgumentException("stock must be a positive number");
+        }
     }
 
     @Override
@@ -37,12 +42,12 @@ public class Features implements ValueObject<Features.Props> {
             }
 
             @Override
-            public double unitPrice() {
+            public Double unitPrice() {
                 return unitPrice;
             }
 
             @Override
-            public int stock() {
+            public Integer stock() {
                 return stock;
             }
         };
@@ -52,7 +57,7 @@ public class Features implements ValueObject<Features.Props> {
         String title();
         String brand();
         String description();
-        double unitPrice();
-        int stock();
+        Double unitPrice();
+        Integer stock();
     }
 }

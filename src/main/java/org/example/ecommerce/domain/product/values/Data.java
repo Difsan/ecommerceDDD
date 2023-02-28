@@ -2,6 +2,8 @@ package org.example.ecommerce.domain.product.values;
 
 import org.example.ecommerce.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Data implements ValueObject<Data.Props> {
     private final String name;
     private final String nit;
@@ -10,7 +12,10 @@ public class Data implements ValueObject<Data.Props> {
 
     public Data(String name, String nit, String email, String about) {
         this.name = name;
-        this.nit = nit;
+        this.nit = Objects.requireNonNull(nit);
+        if (this.nit.isEmpty()) {
+            throw new IllegalArgumentException("nit is not valid");
+        }
         this.email = email;
         this.about = about;
     }

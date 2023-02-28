@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="generic folder was created and basic classes were added, values for product were created.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/CategoryID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/SellerID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Title.java" afterDir="false" />
+    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment=" values for product were complemented.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Seller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/ProductID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/ProductID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Features.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Features.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677605091829</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=" values for product were complemented.">
+      <created>1677606199592</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677606199592</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,6 +97,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ecommerce was created" />
     <MESSAGE value="generic folder was created and basic classes were added, values for product were created." />
-    <option name="LAST_COMMIT_MESSAGE" value="generic folder was created and basic classes were added, values for product were created." />
+    <MESSAGE value=" values for product were complemented." />
+    <option name="LAST_COMMIT_MESSAGE" value=" values for product were complemented." />
   </component>
 </project>
