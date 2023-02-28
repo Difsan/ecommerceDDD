@@ -4,15 +4,15 @@ import org.example.ecommerce.generic.Identity;
 
 public class ProductID extends Identity {
 
-        public ProductID(String ProductID) {
-            super(ProductID);
+        public ProductID(String productID) {
+            super(productID);
         }
 
         public ProductID() {
 
         }
 
-        public static ProductID of(String ProductID) {
-            return new ProductID(ProductID);
+        public static ProductID of(String productID) {
+            return new ProductID(productID);
         }
 }
