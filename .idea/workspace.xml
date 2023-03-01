@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="Value Object for aggregate delivery were added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateProduct.java" afterDir="false" />
+    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="ProductCreated value was added, but it has VO as attributes.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/OrderChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/OrderCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/CategoryCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/DataChangedFromSeller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/SellerCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/TitleChangedFromCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" afterDir="false" />
@@ -112,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677622623809</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ProductCreated value was added, but it has VO as attributes.">
+      <created>1677631898891</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677631898891</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +150,7 @@
     <MESSAGE value="Category and Seller entities was added." />
     <MESSAGE value="Value Object for aggregate product were added" />
     <MESSAGE value="Value Object for aggregate delivery were added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Value Object for aggregate delivery were added" />
+    <MESSAGE value="ProductCreated value was added, but it has VO as attributes." />
+    <option name="LAST_COMMIT_MESSAGE" value="ProductCreated value was added, but it has VO as attributes." />
   </component>
 </project>
