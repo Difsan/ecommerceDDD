@@ -1,25 +1,33 @@
 package org.example.ecommerce.domain.order.events;
 
-import org.example.ecommerce.domain.order.values.Information;
 import org.example.ecommerce.domain.order.values.User;
 import org.example.ecommerce.generic.DomainEvent;
 
+import java.time.LocalDate;
+
 public class OrderCreated extends DomainEvent {
 
-    private Information information;
-    private User userID;
+    private LocalDate createDate;
 
-    public OrderCreated(Information information, User userID) {
+    private Double total;
+    private String userID;
+
+    public OrderCreated(LocalDate createDate, Double total, String userID) {
         super("org.example.orderCreated");
-        this.information = information;
+        this.createDate = createDate;
+        this.total = total;
         this.userID = userID;
     }
 
-    public Information getInformation() {
-        return information;
+    public LocalDate getCreateDate() {
+        return createDate;
     }
 
-    public User getUserID() {
+    public Double getTotal() {
+        return total;
+    }
+
+    public String getUserID() {
         return userID;
     }
 }

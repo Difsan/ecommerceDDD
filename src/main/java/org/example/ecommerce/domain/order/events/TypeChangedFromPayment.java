@@ -5,21 +5,21 @@ import org.example.ecommerce.domain.order.values.Type;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class TypeChangedFromPayment extends DomainEvent {
-    private final PaymentID paymentID;
-    private final Type type;
+    private final String paymentID;
+    private final String type;
 
 
-    public TypeChangedFromPayment(PaymentID paymentID, Type type) {
+    public TypeChangedFromPayment(String paymentID, String type) {
         super("org.example.typeChangedFromPayment");
         this.paymentID = paymentID;
         this.type = type;
     }
 
-    public PaymentID getPaymentID() {
+    public String getPaymentID() {
         return paymentID;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 }

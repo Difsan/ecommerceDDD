@@ -1,31 +1,44 @@
 package org.example.ecommerce.domain.order;
 
+import org.example.ecommerce.domain.order.command.RemoveItemFromOrderCommand;
 import org.example.ecommerce.domain.order.events.*;
+import org.example.ecommerce.domain.order.values.*;
 import org.example.ecommerce.generic.EventChange;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderChange extends EventChange {
-    public OrderChange(Order order){
+    public OrderChange(Order order) {
         apply((OrderCreated event) -> {
-            order.information = event.getInformation();
-            order.userID = event.getUserID();
+            order.createDate = new CreateDate(event.getCreateDate());
+            order.total = new Total(event.getTotal());
+            order.userID = new User(event.getUserID());
             order.items = new ArrayList<>();
         });
-        apply((PaymentCreated event) ->{
-            order.payment = new Payment(event.getPaymentID(), event.getType());
+        apply((TotalChangedFromOrder event) -> {
+            order.total = new Total(event.getNewTotal());
+        });
+        apply((PaymentCreated event) -> {
+            order.payment = new Payment(PaymentID.of(event.getPaymentID()),
+                    new Type(event.getType()));
         });
         apply((TypeChangedFromPayment event) -> {
-            order.payment.changeType(event.getType());
+            order.payment.changeType(new Type(event.getType()));
         });
-        apply((ItemAdded event) ->{
-            Item item = new Item(event.getId(), event.getProductID(), event.getData());
+        apply((ItemAdded event) -> {
+            Item item = new Item(ItemID.of(event.getItemID()), new Product(event.getProductID()),
+                    new Quantity(event.getQuantity()), new SubTotal(event.getSubTotal()));
             order.items.add(item);
         });
-        apply((DataChangedFromItem event) -> {
-            order.items.stream().forEach(item ->{
-                if (item.itemID().equals(event.getItemID())) item.changeData(event.getData());
+        apply((QuantityChangedFromItem event) -> {
+            order.items.stream().forEach(item -> {
+                if (item.itemID().value().equals(event.getItemID())) {
+                    item.changeQuantity(new Quantity(event.getNewQuantity()));
+                    // should I change the subtotal also?
+                }
             });
         });
+
     }
 }

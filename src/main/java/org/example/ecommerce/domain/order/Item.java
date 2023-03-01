@@ -1,8 +1,9 @@
 package org.example.ecommerce.domain.order;
 
-import org.example.ecommerce.domain.order.values.Data;
 import org.example.ecommerce.domain.order.values.ItemID;
 import org.example.ecommerce.domain.order.values.Product;
+import org.example.ecommerce.domain.order.values.Quantity;
+import org.example.ecommerce.domain.order.values.SubTotal;
 import org.example.ecommerce.generic.Entity;
 
 import java.util.Objects;
@@ -11,18 +12,22 @@ public class Item extends Entity<ItemID> {
 
     private ItemID id;
     private Product productID;
-    private Data data;
+    private Quantity quantity;
 
-    public Item(ItemID id, Product productID, Data data) {
+    private SubTotal subTotal;
+
+    public Item(ItemID id, Product productID, Quantity quantity, SubTotal subTotal) {
         super(id);
         this.productID= Objects.requireNonNull(productID);
-        this.data = data;
-        this.id = id;
+        this.quantity= quantity;
+        this.subTotal = subTotal;
     }
 
-    public void changeData(Data data){ this.data = data; }
+    public void changeQuantity (Quantity quantity){ this.quantity = quantity; }
 
-    public Data data(){ return data; }
+    public Quantity quantity(){ return quantity; }
+
+    public SubTotal subTotal(){ return subTotal; }
 
     public Product productID(){return productID; }
 

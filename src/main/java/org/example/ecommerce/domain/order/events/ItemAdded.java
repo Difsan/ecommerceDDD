@@ -1,31 +1,38 @@
 package org.example.ecommerce.domain.order.events;
 
-import org.example.ecommerce.domain.order.values.Data;
 import org.example.ecommerce.domain.order.values.ItemID;
 import org.example.ecommerce.domain.order.values.Product;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class ItemAdded extends DomainEvent {
-    private final ItemID id;
-    private final Product productID;
-    private Data data;
+    private final String itemID;
+    private final String productID;
+    private final Integer quantity;
 
-    public ItemAdded(ItemID id, Product productID, Data data) {
+    private final Double subTotal;
+
+    public ItemAdded( String itemID,
+                     String productID, Integer quantity, Double subTotal) {
         super("org.example.itemAdded");
-        this.id = id;
+        this.itemID = itemID;
         this.productID = productID;
-        this.data = data;
+        this.quantity = quantity;
+        this.subTotal = subTotal;
     }
 
-    public ItemID getId() {
-        return id;
+    public String getItemID() {
+        return itemID;
     }
 
-    public Product getProductID() {
+    public String getProductID() {
         return productID;
     }
 
-    public Data getData() {
-        return data;
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public Double getSubTotal() {
+        return subTotal;
     }
 }

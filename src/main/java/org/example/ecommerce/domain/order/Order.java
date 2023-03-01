@@ -11,15 +11,17 @@ import java.util.Objects;
 
 public class Order extends AggregateRoot<OrderID> {
 
-    protected Information information;
+    protected CreateDate createDate;
+
+    protected Total total;
     protected User userID;
     protected Payment payment;
     protected List<Item> items;
 
-    public Order(OrderID id, Information information, User userID) {
-        super(id);
+    public Order(OrderID orderID, CreateDate createDate, Total total, User userID) {
+        super(orderID);
         subscribe(new OrderChange(this));
-        appendChange(new OrderCreated(information, userID)).apply();
+        appendChange(new OrderCreated(createDate.value(), total.value(), userID.value())).apply();
     }
 
     public Order(OrderID id) {
@@ -33,22 +35,34 @@ public class Order extends AggregateRoot<OrderID> {
         return order;
     }
 
-    public void createPayment(Type type){
-        appendChange(new PaymentCreated(new PaymentID(), type)).apply();
+    public void changeTotalFromOrder(Total newTotal){
+        appendChange(new TotalChangedFromOrder(newTotal.value())).apply();
+    }
+    public void createPayment(PaymentID paymentID, Type type){
+
+        appendChange(new PaymentCreated(paymentID.value(), type.value())).apply();
     }
 
     public void changeTypeFromPayment(PaymentID paymentID, Type type){
-        appendChange(new TypeChangedFromPayment(paymentID, type)).apply();
+        appendChange(new TypeChangedFromPayment(paymentID.value(), type.value())).apply();
     }
 
-    public void addAnItem(ItemID id, Product productID, Data data){
-        Objects.requireNonNull(id);
+    public void addAnItem(ItemID itemID, Product productID, Quantity quantity, SubTotal subTotal){
+        Objects.requireNonNull(itemID);
         Objects.requireNonNull(productID);
-        Objects.requireNonNull(data);
-        appendChange(new ItemAdded(id, productID, data)).apply();
+        Objects.requireNonNull(quantity);
+        Objects.requireNonNull(subTotal);
+        appendChange(new ItemAdded(itemID.value(), productID.value(),
+                quantity.value(), subTotal.value())).apply();
     }
 
-    public void changeDataFromItem(ItemID itemID, Data data){
-        appendChange(new DataChangedFromItem(itemID, data)).apply();
+    public void removeItemFromOrder(ProductID productID, ItemID itemID){
+        Objects.requireNonNull(productID);
+        Objects.requireNonNull(itemID);
+        appendChange(new ItemRemovedFromOrder(productID.value(), itemID.value())).apply();
+    }
+
+    public void changeQuantityFromItem(ItemID itemID, Quantity newQuantity){
+        appendChange(new QuantityChangedFromItem(itemID.value(), newQuantity.value())).apply();
     }
 }

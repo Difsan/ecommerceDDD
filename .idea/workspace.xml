@@ -5,31 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="Order model was changed in order to fixed AR, entities, events and commands.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/ChangeStockFromProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/ChangeTitleFromCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateCategoryCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateSellerCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/changeEmailFromSeller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/StockChangedFromProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Description.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Name.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Nit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Stock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/UnitPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/AddItemCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/ChangeQuantityFromItemCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/ChangeTotalFromOrderCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/ChangeTypeFromPaymentCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/CreateOrderCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/CreatePaymentCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/command/RemoveItemFromOrderCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/ItemRemovedFromOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/TotalChangedFromOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/CreateDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/Quantity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/SubTotal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/Total.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Seller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/CategoryCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/CategoryCreated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/DataChangedFromSeller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/EmailChangedFromSeller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/ProductCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/ProductCreated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/SellerCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/SellerCreated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/TitleChangedFromCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/TitleChangedFromCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/values/Features.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/OrderChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/OrderChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/DataChangedFromItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/QuantityChangedFromItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/ItemAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/ItemAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/OrderCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/OrderCreated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/PaymentCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/PaymentCreated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/TypeChangedFromPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/events/TypeChangedFromPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/order/values/Information.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +69,11 @@
       <recent name="E:\CURSOS\BOOTCAMP SOFKAU\M3_ DDD\project\ecommerce\src\main\java\org\example\ecommerce\generic" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.ecommerce.domain.order.command" />
+      <recent name="org.example.ecommerce.domain.order.values" />
       <recent name="org.example.ecommerce.domain.product.command" />
       <recent name="org.example.ecommerce.domain.product.values" />
       <recent name="org.example.ecommerce.domain.delivery.values" />
-      <recent name="org.example.ecommerce.domain.order.values" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -162,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677680870825</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Order model was changed in order to fixed AR, entities, events and commands.">
+      <created>1677698138238</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677698138238</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
