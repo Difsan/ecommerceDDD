@@ -5,21 +5,21 @@ import org.example.ecommerce.domain.product.values.Title;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class TitleChangedFromCategory extends DomainEvent {
-    private final CategoryID categoryID;
-    private final Title title;
+    private final String categoryID;
+    private final String newTitle;
 
 
-    public TitleChangedFromCategory(CategoryID categoryID, Title title) {
+    public TitleChangedFromCategory(String categoryID, String newTitle) {
         super("org.example.titleChangedFromCategory");
         this.categoryID = categoryID;
-        this.title = title;
+        this.newTitle = newTitle;
     }
 
-    public CategoryID getCategoryID() {
+    public String getCategoryID() {
         return categoryID;
     }
 
-    public Title getTitle() {
-        return title;
+    public String getNewTitle() {
+        return newTitle;
     }
 }

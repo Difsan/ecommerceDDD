@@ -1,12 +1,9 @@
 package org.example.ecommerce.domain.product.events;
 
-import org.example.ecommerce.domain.product.Category;
-import org.example.ecommerce.domain.product.Seller;
-import org.example.ecommerce.domain.product.values.Features;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class ProductCreated extends DomainEvent {
-    private Features features;
+    /*private Features features;
 
     public ProductCreated() {
         super("org.example.productCreated");
@@ -19,6 +16,42 @@ public class ProductCreated extends DomainEvent {
 
     public Features getFeatures() {
         return features;
+    }*/
+
+    private final String productTitle;
+    private final String productBrand;
+    private final String productDescription;
+    private final Double productUnitPrice;
+    private final Integer productStock;
+
+    public ProductCreated(String productTitle, String productBrand,
+                          String productDescription,
+                          Double productUnitPrice, Integer productStock) {
+        super("org.example.productCreated");
+        this.productTitle = productTitle;
+        this.productBrand = productBrand;
+        this.productDescription = productDescription;
+        this.productUnitPrice = productUnitPrice;
+        this.productStock = productStock;
     }
 
+    public String getProductTitle() {
+        return productTitle;
+    }
+
+    public String getProductBrand() {
+        return productBrand;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public Double getProductUnitPrice() {
+        return productUnitPrice;
+    }
+
+    public Integer getProductStock() {
+        return productStock;
+    }
 }
