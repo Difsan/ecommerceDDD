@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="Value Object for aggregate product were added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/CompanyID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/Dates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/DeliveryID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/DeliverymanID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/delivery/values/PersonalInfo.java" afterDir="false" />
+    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="Value Object for aggregate delivery were added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/ProductChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/ProductCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/events/ProductCreated.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/CURSOS/BOOTCAMP SOFKAU/M3_ DDD/project/ecommerce/src/main/java/org/example/ecommerce/domain/product"
+    "last_opened_file_path": "E:/CURSOS/BOOTCAMP SOFKAU/M3_ DDD/project/coachExample/Domain-cardgame-master"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677621105671</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Value Object for aggregate delivery were added">
+      <created>1677622623809</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677622623809</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +132,7 @@
     <MESSAGE value=" values for product were complemented." />
     <MESSAGE value="Category and Seller entities was added." />
     <MESSAGE value="Value Object for aggregate product were added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Value Object for aggregate product were added" />
+    <MESSAGE value="Value Object for aggregate delivery were added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Value Object for aggregate delivery were added" />
   </component>
 </project>
