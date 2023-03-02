@@ -4,12 +4,23 @@ import org.example.ecommerce.generic.Command;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class RemoveItemFromOrderCommand extends Command {
+
+    private String orderID;
     private String productID;
     private String itemID;
 
-    public RemoveItemFromOrderCommand(String productID, String itemID) {
+    public RemoveItemFromOrderCommand(String orderID, String productID, String itemID) {
+        this.orderID = orderID;
         this.productID = productID;
         this.itemID = itemID;
+    }
+
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public String getProductID() {

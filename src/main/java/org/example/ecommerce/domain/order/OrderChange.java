@@ -32,14 +32,12 @@ public class OrderChange extends EventChange {
             order.items.add(item);
         });
         apply((QuantityChangedFromItem event) -> {
-            order.items.stream().forEach(item -> {
-                if (item.itemID().value().equals(event.getItemID())) {
-                    item.changeQuantity(new Quantity(event.getNewQuantity()));
+            var itemUpdate = order.items.stream().filter(item -> item.itemID().value().equals(event.getItemID()))
+                            .findFirst().orElseThrow();
+            itemUpdate.changeQuantity(new Quantity(event.getNewQuantity()));
                     // should I change the subtotal also?
-                }
             });
-        });
-        // TO DO the remove item.
+        apply((ItemRemovedFromOrder event) -> order.items.removeIf(item -> item.itemID().value().equals(event.getItemID())));
 
     }
 }
