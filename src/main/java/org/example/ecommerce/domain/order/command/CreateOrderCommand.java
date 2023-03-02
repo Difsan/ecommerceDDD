@@ -10,13 +10,11 @@ public class CreateOrderCommand extends Command {
     private String orderID;
     private LocalDate createDate;
     private Double total;
-    private String userID;
 
-    public CreateOrderCommand(String orderID, Double total, String userID) {
+    public CreateOrderCommand(String orderID, Double total) {
         this.orderID = orderID;
         this.createDate = createDate;
         this.total = total;
-        this.userID = userID;
     }
 
     public String getOrderID() {
@@ -43,12 +41,5 @@ public class CreateOrderCommand extends Command {
         this.total = total;
     }
 
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
 }
 

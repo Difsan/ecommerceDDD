@@ -7,7 +7,7 @@ import org.example.ecommerce.domain.order.command.CreateOrderCommand;
 import org.example.ecommerce.domain.order.values.CreateDate;
 import org.example.ecommerce.domain.order.values.OrderID;
 import org.example.ecommerce.domain.order.values.Total;
-import org.example.ecommerce.domain.order.values.User;
+import org.example.ecommerce.domain.order.values.UserID;
 import org.example.ecommerce.generic.DomainEvent;
 import org.springframework.stereotype.Component;
 
@@ -24,8 +24,7 @@ public class CreateOrderUseCase implements UseCaseForCommand<CreateOrderCommand>
 
     @Override
     public List<DomainEvent> apply(CreateOrderCommand command) {
-        Order order = new Order(OrderID.of(command.getOrderID()),new CreateDate(command.getCreateDate()),
-                new Total(command.getTotal()), new User(command.getUserID()));
+        Order order = new Order(OrderID.of(command.getOrderID()),new CreateDate(command.getCreateDate()));
         return order.getUncommittedChanges().stream().map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }
 }

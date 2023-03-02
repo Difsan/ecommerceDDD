@@ -14,14 +14,15 @@ public class Order extends AggregateRoot<OrderID> {
     protected CreateDate createDate;
 
     protected Total total;
-    protected User userID;
+    protected UserID userID; // add method in order to create it.
     protected Payment payment;
     protected List<Item> items;
 
-    public Order(OrderID orderID, CreateDate createDate, Total total, User userID) {
+    public Order(OrderID orderID, CreateDate createDate) {
         super(orderID);
         subscribe(new OrderChange(this));
-        appendChange(new OrderCreated(createDate.value(), total.value(), userID.value())).apply();
+        //appendChange(new OrderCreated(createDate.value(), total.value(), userID.value())).apply();
+        appendChange(new OrderCreated(createDate.value())).apply();
     }
 
     public Order(OrderID id) {
@@ -47,7 +48,7 @@ public class Order extends AggregateRoot<OrderID> {
         appendChange(new TypeChangedFromPayment(paymentID.value(), type.value())).apply();
     }
 
-    public void addAnItem(ItemID itemID, Product productID, Quantity quantity, SubTotal subTotal){
+    public void addAnItem(ItemID itemID, ProductID productID, Quantity quantity, SubTotal subTotal){
         Objects.requireNonNull(itemID);
         Objects.requireNonNull(productID);
         Objects.requireNonNull(quantity);

@@ -1,7 +1,5 @@
 package org.example.ecommerce.domain.order.events;
 
-import org.example.ecommerce.domain.order.values.ItemID;
-import org.example.ecommerce.domain.order.values.Product;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class ItemAdded extends DomainEvent {

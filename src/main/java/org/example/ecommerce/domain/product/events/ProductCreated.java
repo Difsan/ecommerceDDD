@@ -3,20 +3,6 @@ package org.example.ecommerce.domain.product.events;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class ProductCreated extends DomainEvent {
-    /*private Features features;
-
-    public ProductCreated() {
-        super("org.example.productCreated");
-    }
-
-    public ProductCreated(Features features) {
-        super("org.example.productCreated");
-        this.features = features;
-    }
-
-    public Features getFeatures() {
-        return features;
-    }*/
 
     private final String productTitle;
     private final String productBrand;
