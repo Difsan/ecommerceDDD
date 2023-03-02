@@ -24,13 +24,13 @@ public class Company extends Entity<CompanyID> {
         this.deliverymen = new ArrayList<>();
     }
 
-    public void addADeliveryman(DeliverymanID deliverymanID, Name name, Phone phone){
+    /*public void addADeliveryman(DeliverymanID deliverymanID, Name name, Phone phone){
         Objects.requireNonNull(deliverymanID);
         Objects.requireNonNull(name);
         Objects.requireNonNull(phone);
         Deliveryman deliveryman = new Deliveryman(deliverymanID, name, phone);
         deliverymen.add(deliveryman);
-    }
+    }*/
 
     public void changePhone (Phone phone){ this.phone = phone; }
 

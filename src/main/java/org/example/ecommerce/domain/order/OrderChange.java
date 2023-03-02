@@ -37,7 +37,8 @@ public class OrderChange extends EventChange {
             itemUpdate.changeQuantity(new Quantity(event.getNewQuantity()));
                     // should I change the subtotal also?
             });
-        apply((ItemRemovedFromOrder event) -> order.items.removeIf(item -> item.itemID().value().equals(event.getItemID())));
+        apply((ItemRemovedFromOrder event) ->
+                order.items.removeIf(item -> item.itemID().value().equals(event.getItemID())));
 
     }
 }

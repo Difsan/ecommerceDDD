@@ -37,6 +37,11 @@ public class Delivery extends AggregateRoot<DeliveryID> {
         appendChange(new OrderAdded(order.value())).apply();
     }
 
+    public void removeAnOrder(Order order){
+        Objects.requireNonNull(order);
+        appendChange(new OrderRemoved(order.value())).apply();
+    }
+
     public void createCompany(CompanyID companyID, Name name, Phone phone){
 
         appendChange(new CompanyCreated(companyID.value(),name.value(), phone.value())).apply();
@@ -47,6 +52,12 @@ public class Delivery extends AggregateRoot<DeliveryID> {
         Objects.requireNonNull(name);
         Objects.requireNonNull(phone);
         appendChange(new DeliverymanAdded(deliverymanID.value(), name.value(), phone.value())).apply();
+    }
+
+    public void removeDeliverymanFromCompany(CompanyID companyID, DeliverymanID deliverymanID){
+        Objects.requireNonNull(companyID);
+        Objects.requireNonNull(deliverymanID);
+        appendChange(new DeliverymanRemovedFromCompany(companyID.value(), deliverymanID.value()));
     }
 
     public void changePhoneFromCompany(CompanyID companyID, Phone newPhone){
