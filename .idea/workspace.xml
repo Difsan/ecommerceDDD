@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="Delivery domain was changed in order to fixed AR, entities, events and commands.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/commons/EventsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/commons/UseCaseForCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/product/ChangeEmailFromSellerUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/product/ChangeTitleFromCategoryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/product/CreateCategoryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/product/CreateProductUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/product/CreateSellerUseCase.java" afterDir="false" />
+    <list default="true" id="a4bdc028-cdf6-4cba-b604-e8e6d3653481" name="Changes" comment="product Use cases were added according with the commands made in product domain">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/order/AddItemUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/order/ChangeQuantityFromItemUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/order/ChangeTotalFromOrderUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/order/ChangeTypeFromPaymentUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/business/order/CreateOrderUseCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateCategoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateCategoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateSellerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/CreateSellerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/changeEmailFromSeller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ecommerce/domain/product/command/ChangeEmailFromSeller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677716162120</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="product Use cases were added according with the commands made in product domain">
+      <created>1677719937326</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677719937326</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +201,7 @@
     <MESSAGE value="Order model was changed in order to fixed AR, entities, events and commands." />
     <MESSAGE value="Order domain was changed in order to fixed AR, entities, events and commands." />
     <MESSAGE value="Delivery domain was changed in order to fixed AR, entities, events and commands." />
-    <option name="LAST_COMMIT_MESSAGE" value="Delivery domain was changed in order to fixed AR, entities, events and commands." />
+    <MESSAGE value="product Use cases were added according with the commands made in product domain" />
+    <option name="LAST_COMMIT_MESSAGE" value="product Use cases were added according with the commands made in product domain" />
   </component>
 </project>
