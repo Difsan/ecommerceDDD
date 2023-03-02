@@ -5,15 +5,17 @@ import org.example.ecommerce.generic.Command;
 public class CreateSellerCommand extends Command {
 
     private String productID;
+    private String sellerID;
+
     private String sellerName;
     private String sellerNit;
     private String sellerEmail;
     private String sellerDescription;
 
-    public CreateSellerCommand(String productID, String sellerName,
-                               String sellerNit, String sellerEmail,
-                               String sellerDescription) {
+    public CreateSellerCommand(String productID, String sellerID, String sellerName,
+                               String sellerNit, String sellerEmail, String sellerDescription) {
         this.productID = productID;
+        this.sellerID = sellerID;
         this.sellerName = sellerName;
         this.sellerNit = sellerNit;
         this.sellerEmail = sellerEmail;
@@ -22,6 +24,14 @@ public class CreateSellerCommand extends Command {
 
     public String getProductID() {
         return productID;
+    }
+
+    public String getSellerID() {
+        return sellerID;
+    }
+
+    public void setSellerID(String sellerID) {
+        this.sellerID = sellerID;
     }
 
     public String getSellerName() {

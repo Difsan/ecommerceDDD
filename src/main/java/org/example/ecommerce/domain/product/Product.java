@@ -17,7 +17,8 @@ public class Product extends AggregateRoot<ProductID> {
     protected Seller seller;
     protected Category category;
 
-    public Product(ProductID productID,Title tile, Brand brand, Description description, UnitPrice unitPrice,Stock stock) {
+    public Product(ProductID productID,Title tile, Brand brand,
+                   Description description, UnitPrice unitPrice,Stock stock) {
         super(productID);
         subscribe(new ProductChange(this));
         appendChange(new ProductCreated(tile.value(), brand.value(),
