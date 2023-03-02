@@ -1,17 +1,17 @@
 package org.example.ecommerce.domain.delivery.command;
 
+import org.example.ecommerce.generic.Command;
 import org.example.ecommerce.generic.DomainEvent;
 
-public class CreateCompanyCommand extends DomainEvent {
+public class CreateCompanyCommand extends Command {
 
     private String deliveryID;
     private String companyID;
     private String name;
     private String phone;
 
-    public CreateCompanyCommand(String type, String deliveryID, String companyID,
+    public CreateCompanyCommand( String deliveryID, String companyID,
                                 String name, String phone) {
-        super(type);
         this.deliveryID = deliveryID;
         this.companyID = companyID;
         this.name = name;
