@@ -2,7 +2,6 @@ package org.example.ecommerce.domain.delivery;
 
 import org.example.ecommerce.domain.delivery.events.*;
 import org.example.ecommerce.domain.delivery.values.*;
-import org.example.ecommerce.domain.order.values.OrderID;
 import org.example.ecommerce.generic.AggregateRoot;
 import org.example.ecommerce.generic.DomainEvent;
 
@@ -11,14 +10,15 @@ import java.util.Objects;
 
 public class Delivery extends AggregateRoot<DeliveryID> {
 
-    protected Dates dates;
+    protected CreateDate createDate;
+    protected DeliveredDate deliveredDate;
     protected List<Order> ordersIDS;
     protected Company company;
 
-    public Delivery(DeliveryID id,Dates dates) {
-        super(id);
+    public Delivery(DeliveryID deliveryID, CreateDate createDate, DeliveredDate deliveredDate) {
+        super(deliveryID);
         subscribe(new DeliveryChange(this));
-        appendChange(new DeliveryCreated(dates)).apply();
+        appendChange(new DeliveryCreated(deliveryID.value(), createDate.value(), deliveredDate.value())).apply();
     }
 
     public Delivery(DeliveryID id) {
@@ -34,26 +34,28 @@ public class Delivery extends AggregateRoot<DeliveryID> {
 
     public void addAnOrder(Order order){
         Objects.requireNonNull(order);
-        appendChange(new OrderAdded(order)).apply();
+        appendChange(new OrderAdded(order.value())).apply();
     }
 
-    public void createCompany(Data data){
-        appendChange(new CompanyCreated(new CompanyID(),data)).apply();
+    public void createCompany(CompanyID companyID, Name name, Phone phone){
+
+        appendChange(new CompanyCreated(companyID.value(),name.value(), phone.value())).apply();
     }
 
-    public void addADeliveryman(DeliverymanID id, PersonalInfo personalInfo){
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(personalInfo);
-        appendChange(new DeliverymanAdded(id, personalInfo)).apply();
+    public void addADeliveryman(DeliverymanID deliverymanID, Name name, Phone phone){
+        Objects.requireNonNull(deliverymanID);
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(phone);
+        appendChange(new DeliverymanAdded(deliverymanID.value(), name.value(), phone.value())).apply();
     }
 
-    public void changeDataFromCompany(CompanyID companyID, Data data){
-        appendChange(new DataChangedFromCompany(companyID, data)).apply();
+    public void changePhoneFromCompany(CompanyID companyID, Phone newPhone){
+        appendChange(new PhoneChangedFromCompany(companyID.value(), newPhone.value())).apply();
     }
 
-    public void changePersonalInfoFromDeliveryman(DeliverymanID id, PersonalInfo personalInfo){
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(personalInfo);
-        appendChange(new PersonalInfoChangedFromDeliveryman(id, personalInfo)).apply();
+    public void changePhoneFromDeliveryman(DeliverymanID deliverymanID, Phone newPhone){
+        Objects.requireNonNull(deliverymanID);
+        Objects.requireNonNull(newPhone);
+        appendChange(new PhoneChangedFromDeliveryman(deliverymanID.value(), newPhone.value())).apply();
     }
 }

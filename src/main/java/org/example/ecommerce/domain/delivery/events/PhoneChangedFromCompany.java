@@ -1,25 +1,20 @@
 package org.example.ecommerce.domain.delivery.events;
 
+import org.example.ecommerce.domain.delivery.values.CompanyID;
 import org.example.ecommerce.generic.DomainEvent;
 
-public class CompanyCreated extends DomainEvent {
+public class PhoneChangedFromCompany extends DomainEvent {
     private final String companyID;
-    private final String name;
-    private final String phone;
+    private  final String phone;
 
-    public CompanyCreated(String companyID, String name, String phone) {
-        super("org.example.companyCreated");
+    public PhoneChangedFromCompany( String companyID, String phone) {
+        super("org.example.phoneChangedFromCompany");
         this.companyID = companyID;
-        this.name = name;
         this.phone = phone;
     }
 
     public String getCompanyID() {
         return companyID;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getPhone() {

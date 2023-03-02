@@ -4,15 +4,15 @@ import org.example.ecommerce.domain.delivery.values.Order;
 import org.example.ecommerce.generic.DomainEvent;
 
 public class OrderAdded extends DomainEvent {
-    private final Order order;
+    private final String order;
 
 
-    public OrderAdded(Order order) {
+    public OrderAdded(String order) {
         super("org.example.orderAdded");
         this.order = order;
     }
 
-    public Order getOrder() {
+    public String getOrder() {
         return order;
     }
 }

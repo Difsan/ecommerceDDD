@@ -8,18 +8,23 @@ import java.util.Objects;
 
 public class Deliveryman extends Entity<DeliverymanID> {
 
-    private DeliverymanID id;
-    private PersonalInfo personalInfo;
+    private DeliverymanID deliverymanID;
 
-    public Deliveryman(DeliverymanID id, PersonalInfo personalInfo) {
-        super(id);
-        this.personalInfo = Objects.requireNonNull(personalInfo);
-        this.id = id;
+    private Name name;
+
+    private Phone phone;
+
+    public Deliveryman(DeliverymanID deliverymanID, Name name, Phone phone) {
+        super(deliverymanID);
+        this.name = Objects.requireNonNull(name);
+        this.phone = Objects.requireNonNull(phone);
+        this.deliverymanID = deliverymanID;
     }
 
-    public void changePersonalInfo(PersonalInfo personalInfo){ this.personalInfo = personalInfo; }
+    public void changePhone (Phone phone){ this.phone = phone; }
 
-    public PersonalInfo personalInfo(){ return personalInfo; }
+    public DeliverymanID deliverymanID() { return deliverymanID; }
+    public Name name() { return name; }
+    public Phone phone() { return phone; }
 
-    public DeliverymanID deliverymanID() { return id; }
 }
