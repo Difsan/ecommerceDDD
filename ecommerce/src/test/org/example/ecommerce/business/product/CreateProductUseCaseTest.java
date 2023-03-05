@@ -41,6 +41,6 @@ class CreateProductUseCaseTest {
         List<DomainEvent> domainEventList = createProductUseCase.apply(createProductCommand);
 
         Assertions.assertEquals(1, domainEventList.size());
-        Assertions.assertEquals("productID", domainEventList.get(0).aggregateRootId());
+        Assertions.assertEquals(productCreated.aggregateRootId(), domainEventList.get(0).aggregateRootId());
     }
 }

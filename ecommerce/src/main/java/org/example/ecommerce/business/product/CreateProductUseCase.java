@@ -16,14 +16,19 @@ public class CreateProductUseCase implements UseCaseForCommand<CreateProductComm
     private final EventsRepository eventsRepository;
 
     public CreateProductUseCase(EventsRepository eventsRepository) {
+
         this.eventsRepository = eventsRepository;
     }
 
     @Override
     public List<DomainEvent> apply(CreateProductCommand command) {
-        Product product = new Product(ProductID.of(command.getProductID()), new Title(command.getProductTitle()),
-                new Brand(command.getProductBrand()), new Description(command.getProductDescription()),
-                new UnitPrice(command.getProductUnitPrice()), new Stock(command.getProductStock()));
-        return product.getUncommittedChanges().stream().map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
+        Product product = new Product(ProductID.of(command.getProductID()),
+                new Title(command.getProductTitle()),
+                new Brand(command.getProductBrand()),
+                new Description(command.getProductDescription()),
+                new UnitPrice(command.getProductUnitPrice()),
+                new Stock(command.getProductStock()));
+        return product.getUncommittedChanges().stream()
+                .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }
 }

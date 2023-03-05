@@ -18,6 +18,7 @@ public class CreateCategoryUseCase implements UseCaseForCommand<CreateCategoryCo
     private final EventsRepository eventsRepository;
 
     public CreateCategoryUseCase(EventsRepository eventsRepository) {
+
         this.eventsRepository = eventsRepository;
     }
 
@@ -26,6 +27,7 @@ public class CreateCategoryUseCase implements UseCaseForCommand<CreateCategoryCo
         List<DomainEvent> productEvents =  eventsRepository.findByAggregatedRootId(command.getProductID());
         Product product = Product.from(ProductID.of(command.getProductID()), productEvents);
         product.createCategory(CategoryID.of(command.getCategoryID()), new Title(command.getCategoryTitle()));
-        return product.getUncommittedChanges().stream().map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
+        return product.getUncommittedChanges().stream()
+                .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }
 }
