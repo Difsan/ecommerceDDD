@@ -15,10 +15,13 @@ public class OrderChange extends EventChange {
         });
         apply((TotalChangedFromOrder event) -> {
             Double newTotal = 0.0;
-            if(!order.items.isEmpty()){
+            if (order.items == null){ order.items = new ArrayList<>();}
+            /*(if(!order.items.isEmpty()){
                 newTotal = order.items.stream().mapToDouble(item -> (item.quantity().value()*item.subTotal().value())).sum();
                 order.total = new Total(newTotal);
-            }
+            }*/
+            newTotal = order.items.stream().mapToDouble(item -> (item.quantity().value()*item.subTotal().value())).sum();
+            order.total = new Total(newTotal);
 
 
         });
@@ -30,9 +33,13 @@ public class OrderChange extends EventChange {
             order.payment.changeType(new Type(event.getType()));
         });
         apply((ItemAdded event) -> {
+            if (order.items == null){
+                order.items = new ArrayList<>();
+            }
             Item item = new Item(ItemID.of(event.getItemID()), ProductID.of(event.getProductID()),
                     new Quantity(event.getQuantity()), new SubTotal(event.getSubTotal()));
             order.items.add(item);
+
         });
         apply((QuantityChangedFromItem event) -> {
             var itemUpdate = order.items.stream().filter(item -> item.itemID().value().equals(event.getItemID()))
