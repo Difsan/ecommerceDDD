@@ -30,7 +30,9 @@ public class OrderChange extends EventChange {
                     new Type(event.getType()));
         });
         apply((TypeChangedFromPayment event) -> {
-            order.payment.changeType(new Type(event.getType()));
+            if (order.payment != null){
+                order.payment.changeType(new Type(event.getType()));
+            }
         });
         apply((ItemAdded event) -> {
             if (order.items == null){
@@ -42,13 +44,17 @@ public class OrderChange extends EventChange {
 
         });
         apply((QuantityChangedFromItem event) -> {
-            var itemUpdate = order.items.stream().filter(item -> item.itemID().value().equals(event.getItemID()))
+            if (order.items!=null){
+                var itemUpdate = order.items.stream().filter(item -> item.itemID().value().equals(event.getItemID()))
                             .findFirst().orElseThrow();
-            itemUpdate.changeQuantity(new Quantity(event.getNewQuantity()));
+                itemUpdate.changeQuantity(new Quantity(event.getNewQuantity()));
                     // should I change the subtotal also?
-            });
-        apply((ItemRemovedFromOrder event) ->
-                order.items.removeIf(item -> item.itemID().value().equals(event.getItemID())));
+            }});
+        apply((ItemRemovedFromOrder event) ->{
+            if (order.items!=null){
+                order.items.removeIf(item -> item.itemID().value().equals(event.getItemID()));
+            }
+        });
 
     }
 }
