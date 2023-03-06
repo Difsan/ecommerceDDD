@@ -12,9 +12,9 @@ public class DeliveredDate implements ValueObject<LocalDate> {
 
     public DeliveredDate(LocalDate value) {
         this.value = Objects.requireNonNull(value);
-        if (this.value.isBefore(createDate.value())) {
+        /*if (this.value.isBefore(createDate.value())) {
             throw new IllegalArgumentException("deliveredDate is not valid");
-        }
+        }*/
     }
 
     @Override

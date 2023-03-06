@@ -15,7 +15,10 @@ public class DeliveryChange extends EventChange {
             delivery.ordersIDS = new ArrayList<>();
         });
         apply((OrderAdded event) -> {
-                delivery.ordersIDS.add(new Order(event.getOrder()));
+            if (delivery.ordersIDS==null) {
+                delivery.ordersIDS = new ArrayList<>();
+            }
+            delivery.ordersIDS.add(new Order(event.getOrder()));
         });
         apply((OrderRemoved event) -> {
             delivery.ordersIDS.removeIf(order -> order.value().equals(event.getOrder()));
@@ -25,8 +28,10 @@ public class DeliveryChange extends EventChange {
                     new Phone(event.getPhone()));
         });
         apply((DeliverymanAdded event) -> {
-            delivery.company.deliverymen().add(new Deliveryman(DeliverymanID.of(event.getDeliverymanID()),
-                    new Name(event.getName()), new Phone(event.getPhone())));
+            if (delivery.company!=null){
+                delivery.company.deliverymen().add(new Deliveryman(DeliverymanID.of(event.getDeliverymanID()),
+                        new Name(event.getName()), new Phone(event.getPhone())));
+            }
         });
         apply((PhoneChangedFromCompany event) -> {
             delivery.company.changePhone(new Phone(event.getPhone()));

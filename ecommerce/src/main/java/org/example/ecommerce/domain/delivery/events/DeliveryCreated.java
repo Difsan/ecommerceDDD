@@ -6,22 +6,17 @@ import java.time.LocalDate;
 
 public class DeliveryCreated extends DomainEvent {
 
-    private final String deliveryID;
+    //private final String deliveryID;
     private final LocalDate createDate;
     private final LocalDate deliveredDate;
 
-    public DeliveryCreated(String deliveryID, LocalDate createDate,
+    public DeliveryCreated( LocalDate createDate,
                            LocalDate deliveredDate) {
         super("org.example.deliveryCreated");
-        this.deliveryID = deliveryID;
+        //this.deliveryID = deliveryID;
         this.createDate = createDate;
         this.deliveredDate = deliveredDate;
     }
-
-    public String getDeliveryID() {
-        return deliveryID;
-    }
-
     public LocalDate getCreateDate() {
         return createDate;
     }

@@ -11,11 +11,10 @@ public class CreateDeliveryCommand extends Command {
     private LocalDate createDate;
     private LocalDate deliveredDate;
 
-    public CreateDeliveryCommand(String deliveryID, LocalDate createDate,
-                                 LocalDate deliveredDate) {
+    public CreateDeliveryCommand(String deliveryID, LocalDate createDate) {
         this.deliveryID = deliveryID;
         this.createDate = createDate;
-        this.deliveredDate = deliveredDate;
+        this.deliveredDate = this.createDate.plusDays(8);
     }
 
     public String getDeliveryID() {

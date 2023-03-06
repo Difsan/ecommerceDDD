@@ -18,7 +18,7 @@ public class Delivery extends AggregateRoot<DeliveryID> {
     public Delivery(DeliveryID deliveryID, CreateDate createDate, DeliveredDate deliveredDate) {
         super(deliveryID);
         subscribe(new DeliveryChange(this));
-        appendChange(new DeliveryCreated(deliveryID.value(), createDate.value(), deliveredDate.value())).apply();
+        appendChange(new DeliveryCreated( createDate.value(), deliveredDate.value())).apply();
     }
 
     public Delivery(DeliveryID id) {

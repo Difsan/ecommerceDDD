@@ -10,6 +10,7 @@ import org.example.ecommerce.domain.delivery.values.DeliverymanID;
 import org.example.ecommerce.generic.DomainEvent;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RemoveDeliverymanFromCompanyUseCase implements
         UseCaseForCommand <RemoveDeliverymanFromCompanyCommand> {
@@ -25,6 +26,6 @@ public class RemoveDeliverymanFromCompanyUseCase implements
         List<DomainEvent> deliveryEvents =  eventsRepository.findByAggregatedRootId(command.getDeliveryID());
         Delivery delivery = Delivery.from(DeliveryID.of(command.getDeliveryID()), deliveryEvents);
         delivery.removeDeliverymanFromCompany(CompanyID.of(command.getCompanyID()), DeliverymanID.of(command.getDeliverymanID()));
-        return null;
+        return delivery.getUncommittedChanges().stream().map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }
 }
