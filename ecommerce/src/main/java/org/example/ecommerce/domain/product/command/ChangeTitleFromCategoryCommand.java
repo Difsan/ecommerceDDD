@@ -1,15 +1,14 @@
 package org.example.ecommerce.domain.product.command;
 
 import org.example.ecommerce.generic.Command;
-import org.example.ecommerce.generic.DomainEvent;
 
-public class ChangeTitleFromCategory extends Command {
+public class ChangeTitleFromCategoryCommand extends Command {
 
     private String productID;
     private String categoryID;
     private String newTitle;
 
-    public ChangeTitleFromCategory(String productID, String categoryID, String newTitle) {
+    public ChangeTitleFromCategoryCommand(String productID, String categoryID, String newTitle) {
         this.productID = productID;
         this.categoryID = categoryID;
         this.newTitle = newTitle;

@@ -28,7 +28,7 @@ class CreateCategoryUseCaseTest {
     void setup(){createCategoryUseCase = new CreateCategoryUseCase(eventsRepository);}
 
     @Test
-    void successfulScenario() throws NoSuchMethodException {
+    void successfulScenario(){
 
         //Arrange
         CreateCategoryCommand createCategoryCommand =
@@ -42,7 +42,7 @@ class CreateCategoryUseCaseTest {
 
         Mockito.when(
                 eventsRepository.findByAggregatedRootId(createCategoryCommand.getProductID()))
-                .thenReturn(List.of(productCreated));
+                .thenReturn(List.of(categoryCreated));
 
         Mockito.when(eventsRepository.saveEvent(ArgumentMatchers.any(CategoryCreated.class)))
                 .thenAnswer(invocationOnMock -> {

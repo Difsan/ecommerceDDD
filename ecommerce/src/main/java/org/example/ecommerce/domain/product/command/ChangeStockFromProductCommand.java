@@ -1,14 +1,13 @@
 package org.example.ecommerce.domain.product.command;
 
 import org.example.ecommerce.generic.Command;
-import org.example.ecommerce.generic.DomainEvent;
 
-public class ChangeStockFromProduct extends Command {
+public class ChangeStockFromProductCommand extends Command {
     private String productID;
     private Integer newStock;
 
 
-    public ChangeStockFromProduct(String productID, Integer newStock) {
+    public ChangeStockFromProductCommand(String productID, Integer newStock) {
         this.productID = productID;
         this.newStock = newStock;
     }

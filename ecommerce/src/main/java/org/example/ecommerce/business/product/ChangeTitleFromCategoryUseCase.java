@@ -3,7 +3,7 @@ package org.example.ecommerce.business.product;
 import org.example.ecommerce.business.commons.EventsRepository;
 import org.example.ecommerce.business.commons.UseCaseForCommand;
 import org.example.ecommerce.domain.product.Product;
-import org.example.ecommerce.domain.product.command.ChangeTitleFromCategory;
+import org.example.ecommerce.domain.product.command.ChangeTitleFromCategoryCommand;
 import org.example.ecommerce.domain.product.values.CategoryID;
 import org.example.ecommerce.domain.product.values.ProductID;
 import org.example.ecommerce.domain.product.values.Title;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class ChangeTitleFromCategoryUseCase implements
-        UseCaseForCommand<ChangeTitleFromCategory> {
+        UseCaseForCommand<ChangeTitleFromCategoryCommand> {
     private final EventsRepository eventsRepository;
 
     public ChangeTitleFromCategoryUseCase(EventsRepository eventsRepository) {
@@ -23,7 +23,7 @@ public class ChangeTitleFromCategoryUseCase implements
     }
 
     @Override
-    public List<DomainEvent> apply(ChangeTitleFromCategory command) {
+    public List<DomainEvent> apply(ChangeTitleFromCategoryCommand command) {
         List<DomainEvent> productEvents =  eventsRepository.findByAggregatedRootId(command.getProductID());
         Product product = Product.from(ProductID.of(command.getProductID()), productEvents);
         product.changeTitleFromCategory(CategoryID.of(command.getCategoryID()), new Title(command.getNewTitle()));

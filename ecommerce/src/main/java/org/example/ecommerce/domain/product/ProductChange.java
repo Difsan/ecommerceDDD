@@ -13,22 +13,31 @@ public class ProductChange extends EventChange {
             product.unitPrice = new UnitPrice(event.getProductUnitPrice());
             product.stock = new Stock(event.getProductStock());
         });
-        apply((SellerCreated event) -> {
-            product.seller = new Seller(SellerID.of(event.getSellerID()),
-                    new Name(event.getSellerName()), new Nit(event.getSellerNit()),
-                    new Email(event.getSellerEmail()), new Description(event.getSellerDescription()));
-        });
+
         apply((CategoryCreated event) -> {
             product.category = new Category(CategoryID.of(event.getCategoryID()), new Title(event.getCategoryTitle()));
         });
         apply((StockChangedFromProduct event) -> {
             product.stock = new Stock(event.getNewStock());
         });
-        apply((EmailChangedFromSeller event) -> {
-            product.seller.changeEmail(new Email(event.getEmail()));
-        });
+        if (product.seller == null){
+            apply((SellerCreated event) -> {
+                product.seller = new Seller(SellerID.of(event.getSellerID()),
+                        new Name(event.getSellerName()), new Nit(event.getSellerNit()),
+                        new Email(event.getSellerEmail()), new Description(event.getSellerDescription()));
+            });
+        }else {
+            apply((EmailChangedFromSeller event) -> {
+                product.seller.changeEmail(new Email(event.getEmail()));
+            });
+        }
         apply((TitleChangedFromCategory event) ->{
-            product.category.changeTitle(new Title(event.getNewTitle()));
+            if(product.category == null){
+                product.category = new Category(CategoryID.of(event.getCategoryID()),
+                        new Title(event.getNewTitle()));
+            }else {
+                product.category.changeTitle(new Title(event.getNewTitle()));
+            }
         });
     }
 
