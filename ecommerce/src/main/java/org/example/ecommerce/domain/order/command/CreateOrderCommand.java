@@ -9,12 +9,12 @@ public class CreateOrderCommand extends Command {
 
     private String orderID;
     private LocalDate createDate;
-    private Double total;
+    //private Double total;
 
-    public CreateOrderCommand(String orderID, Double total) {
+    public CreateOrderCommand(String orderID) {
         this.orderID = orderID;
-        this.createDate = createDate;
-        this.total = total;
+        this.createDate = LocalDate.now();
+        //this.total = total;
     }
 
     public String getOrderID() {
@@ -31,14 +31,6 @@ public class CreateOrderCommand extends Command {
 
     public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
     }
 
 }

@@ -10,7 +10,7 @@ public class Total implements ValueObject<Double> {
 
     public Total(Double value) {
         this.value = Objects.requireNonNull(value);
-        if (this.value <= 0){ throw new IllegalArgumentException("Total has to be bigger than 0");}
+        if (this.value < 0){ throw new IllegalArgumentException("Total has to be a positive number");}
     }
 
     @Override
